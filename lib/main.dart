@@ -13,14 +13,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white70,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white70
+        ),
+        scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
         textTheme: TextTheme(
           bodyMedium: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w400,
-            fontSize: 23,
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
+            fontSize: 17,
+          ),
+          bodyLarge: TextStyle(
+            color: Colors.black87,
+            fontWeight: FontWeight.w700,
+            fontSize: 30,
           )
         ),
       ),
