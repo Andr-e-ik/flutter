@@ -4,7 +4,7 @@ import 'package:front_todo/models/model.dart';
 
 class RespTask {
   Future<List<TodoList>> getTaskList() async{
-    final responce = await Dio().get('http://127.0.0.1:8000/todos/');
+    final responce = await Dio().get('http://35.197.25.25/todos/');
     // debugPrint(responce.toString());
     final data = responce.data as List<dynamic>;
     final List<TodoList> taskList = [];

@@ -73116,7 +73116,7 @@ n6(){var s=0,r=A.Q(t.Mr),q,p,o,n,m,l,k,j
 var $async$n6=A.R(function(a,b){if(a===1)return A.N(b,r)
 while(true)switch(s){case 0:j=t.j
 s=3
-return A.T(A.ajz(null).agI("http://127.0.0.1:8000/todos/",null,null,null,A.anj("GET",null),null,t.z),$async$n6)
+return A.T(A.ajz(null).agI("http://35.197.25.25/todos/",null,null,null,A.anj("GET",null),null,t.z),$async$n6)
 case 3:l=j.a(b.a)
 k=A.b([],t.dn)
 for(p=J.az(l);p.q();){o=p.gG()
