@@ -25,7 +25,7 @@ class RespTask {
 
   Future<void> addTask(String title) async{
     final responce = await Dio().post(
-      'http://35.197.25.25/todos',
+      'http://35.197.25.25/todos/',
       data: {
         'title': title,
       },
