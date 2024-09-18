@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class TodoList{
   TodoList({
     required this.title,
