@@ -37,7 +37,7 @@ class RespTask {
 
   Future<void> deleteTask(int taskId) async{
     final responce = await Dio().post(
-      'https://todonow.space/todos/delete/$taskId'
+      'http://35.197.25.25/todos/delete/$taskId'
     );
   }
 }
