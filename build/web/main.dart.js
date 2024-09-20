@@ -73134,7 +73134,7 @@ a90(a){var s=0,r=A.Q(t.H),q
 var $async$vp=A.R(function(b,c){if(b===1)return A.N(c,r)
 while(true)switch(s){case 0:q=t.N
 s=2
-return A.T(A.ajz(null).QR("https://todonow.space/todos/",A.aG(["title",a],q,q),A.aoV("application/x-www-form-urlencoded"),t.z),$async$vp)
+return A.T(A.ajz(null).QR("https://todonow.space/todos",A.aG(["title",a],q,q),A.aoV("application/x-www-form-urlencoded"),t.z),$async$vp)
 case 2:return A.O(null,r)}})
 return A.P($async$vp,r)},
 w2(a){return this.ab6(a)},

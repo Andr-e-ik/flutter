@@ -25,7 +25,7 @@ class RespTask {
 
   Future<void> addTask(String title) async{
     final responce = await Dio().post(
-      'https://todonow.space/todos/',
+      'https://todonow.space/todos',
       data: {
         'title': title,
       },
