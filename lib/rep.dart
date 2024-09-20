@@ -4,7 +4,7 @@ import 'package:front_todo/models/model.dart';
 
 class RespTask {
   Future<List<TodoList>> getTaskList() async{
-    final responce = await Dio().get('http://35.197.25.25/todos/');
+    final responce = await Dio().get('https://todonow.space/todos/');
     // debugPrint(responce.toString());
     final data = responce.data as List<dynamic>;
     final List<TodoList> taskList = [];
@@ -25,7 +25,7 @@ class RespTask {
 
   Future<void> addTask(String title) async{
     final responce = await Dio().post(
-      'http://35.197.25.25/todos/',
+      'https://todonow.space/todos',
       data: {
         'title': title,
       },
@@ -37,7 +37,7 @@ class RespTask {
 
   Future<void> deleteTask(int taskId) async{
     final responce = await Dio().post(
-      'http://35.197.25.25/todos/delete/$taskId'
+      'https://todonow.space/todos/delete/$taskId'
     );
   }
 }
