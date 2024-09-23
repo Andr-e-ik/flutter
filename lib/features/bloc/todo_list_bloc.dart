@@ -33,5 +33,13 @@ class TodoListBloc extends Bloc<TodoListEvent, TodoListState> {
         emit(TodoListLoaded(updatedTasks));
       }
     });
+
+    on<UpdateTodoStatus>((event, emit) async {
+      if (state is TodoListLoaded) {
+        await respTask.updateTask(event.taskId, event.taskStatus);
+        final updatedTasks = await respTask.getTaskList();
+        emit(TodoListLoaded(updatedTasks));
+      }
+    });
   }
 }

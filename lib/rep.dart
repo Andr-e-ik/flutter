@@ -40,5 +40,14 @@ class RespTask {
       'https://todonow.space/todos/delete/$taskId'
     );
   }
+
+  Future<void> updateTask(int taskId, bool taskStatus) async {
+    final response = await Dio().post(
+      'https://todonow.space/todos/$taskId',
+      data: {
+        'status': taskStatus,
+      },
+    );
+  }
 }
 

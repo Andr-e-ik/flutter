@@ -13,3 +13,10 @@ class DeleteTodo extends TodoListEvent {
   final int taskId;
   DeleteTodo(this.taskId);
 }
+
+
+class UpdateTodoStatus extends TodoListEvent {
+  final int taskId;
+  final bool taskStatus;
+  UpdateTodoStatus(this.taskId, this.taskStatus);
+}

@@ -12,6 +12,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   // List<TodoList>? _taskList;
+  bool isCompleted = false;
   final _todoListBloc = TodoListBloc(RespTask());
   @override
   void initState() {
@@ -41,24 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontSize: 18),
                 controller: _controller,
                 decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    borderSide: BorderSide(
-                      color: Colors.white,
-                      width: 1.9,
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(25)),
-                    borderSide: BorderSide(
-                      color: Colors.grey,
-                      width: 1.7,
-                    ),
-                  ),
-                  fillColor: Colors.grey.withOpacity(0.20),
-                  filled: true,
                   hintText: 'Enter the name of the task',
-                  hintStyle: TextStyle(color: Colors.black.withOpacity(0.3)),
                   suffixIcon: IconButton(
                     icon: Icon(
                       Icons.add_circle_outline,
@@ -93,22 +77,44 @@ class _MyHomePageState extends State<MyHomePage> {
                             '№${task.id} ${task.title}',
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
-                          trailing: ElevatedButton(
-                            onPressed: () {
-                              _todoListBloc.add(DeleteTodo(task.id));
-                            },
-                            style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.all(0),
-                              shape: StadiumBorder(),
-                              backgroundColor:
-                              Colors.white70.withOpacity(0.8),
-                              minimumSize: Size(50, 32),
-                            ),
-                            child: Icon(
-                              Icons.close,
-                              color: Colors.red.withOpacity(0.65),
-                            ),
-                          ),
+                          trailing:
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      _todoListBloc.add(DeleteTodo(task.id));
+                                    },
+                                    child: Icon(
+                                      Icons.close,
+                                      color: Theme.of(context).iconTheme.color,
+                                      size: Theme.of(context).iconTheme.size,
+                                    ),
+                                  ),
+                                  SizedBox(width: 12),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                        _todoListBloc.add(UpdateTodoStatus(task.id, !task.status));
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: task.status
+                                        ? Colors.green.withOpacity(0.6)
+                                        : Colors.white70.withOpacity(0.8),
+                                    ),
+                                    child: task.status
+                                      ? Text(
+                                        'Completed',
+                                      style: Theme.of(context).textTheme.bodySmall
+                                    )
+                                      : Icon(
+                                      Icons.check,
+                                      color: Colors.green.withOpacity(0.65),
+                                      size: Theme.of(context).iconTheme.size,
+                                    ),
+                                  ),
+                                ],
+                              )
+
                         );
                       },
                     );
